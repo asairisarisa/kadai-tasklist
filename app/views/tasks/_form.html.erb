@@ -1,4 +1,13 @@
 <%= form_for(task) do |f| %>
+  <% if task.errors.any? %>
+    <div id="error_axplanation">
+      <ul>
+        <% task.errors.full_tasks.each do |task| %>
+        <li><%= task %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.label :conteent, "タスク" %>
   <%= f.text_field :content %>
   
